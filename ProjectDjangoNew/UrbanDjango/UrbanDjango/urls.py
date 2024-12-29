@@ -24,7 +24,7 @@ from task5.views import sign_up_by_html, sign_up_by_django
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='welcome.html')),
+    path('', TemplateView.as_view(template_name='second_task/welcome.html')),
     path('func/', func_temp),
     path('class/', Class_temp.as_view()),
     # path('class1/', TemplateView.as_view(template_name='class_template.html')),

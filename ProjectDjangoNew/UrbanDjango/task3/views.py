@@ -8,12 +8,12 @@ def platform_start(request):
     context = {
         'title': title,
     }
-    return render(request, 'platform.html', context)
+    return render(request, 'third_task/platform.html', context)
 
 
 def games_shop(request):
-    return render(request, 'games.html')
+    return render(request, 'third_task/games.html')
 
 
 def cart_shop(request):
-    return render(request, 'cart.html')
+    return render(request, 'third_task/cart.html')

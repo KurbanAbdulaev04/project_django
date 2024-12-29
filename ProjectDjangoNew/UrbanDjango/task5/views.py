@@ -33,23 +33,23 @@ def sign_up_by_html(request):
         elif age < 18:
             info['error'] = 'Вы должны быть старше 18'
 
-    return render(request, 'registration_page.html', info)
+    return render(request, 'fifth_task/registration_page.html', info)
 
 
 def sign_up_by_django(request):
     users = ['Nikita', 'Andrey']
-    context = {
-        'form': '',
-        'error': ''
-    }
+    context = {}
 
     if request.method == 'POST':
         form = UserRegister(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            password = form.cleaned_data['passwprd']
-            repeat_password = form.cleaned_data['repeat_password']
             age = form.cleaned_data['age']
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        repeat_password = request.POST.get('repeat_password')
+        age = int(request.POST.get('age'))
 
         if password == repeat_password and age >= 18 and not username in users:
             return HttpResponse(f'Приветствуем, {username}!')
@@ -67,4 +67,4 @@ def sign_up_by_django(request):
         form = UserRegister()
     context['form'] = form
 
-    return render(request, 'registration_page.html', context)
+    return render(request, 'fifth_task/registration_page.html', context)

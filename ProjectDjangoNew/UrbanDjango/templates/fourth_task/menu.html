@@ -23,13 +23,7 @@
 
     <main>
         {% block content %}
-        {% if games %}
-            {% for i in games %}
-                <ul><li>{{ i }} <button> Купить </button></li></ul>
-            {% endfor %}
-        {% elif text %}
             <h2>{{ text }}</h2>
-        {% endif %}
         {% endblock %}
     </main>
 </body>
